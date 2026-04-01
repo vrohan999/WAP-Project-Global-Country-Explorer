@@ -24,11 +24,14 @@ The goal of this project is to build an interactive web application that:
 * REST Countries API
   https://restcountries.com/
 
-* Frankfurter API
-  https://www.frankfurter.app/
+* WorldBank API
+  [https://www.frankfurter.app/](https://documents.worldbank.org/en/publication/documents-reports/api)
 
-* QuickChart API
+* QR Code API
   https://quickchart.io/
+
+* Book/Culture API
+  https://openlibrary.org
 
 ---
 
