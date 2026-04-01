@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Country Details</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="details.css">
+</head>
+<body>
+<header>
+  🌍 Country Details
+</header>
+<main>
+  <a href="index.html" style="text-decoration:none;">
+  <button>← Back</button>
+    </a>
+  <div id="loading">Loading...</div>
+  <div class="container">
+
+    <div class="card country-card">
+      <div class="info" id="countryInfo"></div>
+      <div class="flag">
+        <img id="flagImg">
+      </div>
+    </div>
+
+    <div class="bottom">
+      <div class="card" id="economyData"></div>
+
+      <div class="rightStack">
+        <div class="card" id="bookData"></div>
+        <div class="card">
+          <h3>QR Code</h3>
+          <img id="qrCode">
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+<script src="details.js"></script>
+</body>
+</html>
