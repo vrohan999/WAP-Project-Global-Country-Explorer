@@ -121,3 +121,4 @@ async function loadDetails(name) {
 
   loading.style.display = "none";
 }
+
