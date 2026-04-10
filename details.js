@@ -60,34 +60,55 @@ async function loadDetails(name) {
     document.getElementById("flagImg").src = country.flags.png;
 
     let code = country.cca2;
-
+    console.log(code)
     let gdpRes = await fetch(
-      `https://api.worldbank.org/v2/country/${code}/indicator/NY.GDP.MKTP.CD?format=json&per_page=5`
+      `https://api.worldbank.org/v2/country/${code}/indicator/NY.GDP.MKTP.CD?format=json&per_page=7`
     );
 
     let gdpData = await gdpRes.json();
     let list = gdpData[1];
+    console.log(list)
 
-    let html = `<h3>Economy (GDP)</h3>`;
+    let values = [];
+    let dates=[]
 
     if (list && list.length > 0) {
-      let latest = undefined;
-
       for (let i = 0; i < list.length; i++) {
         if (list[i].value !== undefined && list[i].value !== null) {
-          latest = list[i];
+          values.push(list[i].value);
+          dates.push(list[i].date)
+        }
+
+        if (values.length == 5) {
           break;
         }
       }
 
-      if (latest) {
-        html += `
-          <p><b>Year:</b> ${latest.date}</p>
-          <p><b>GDP:</b> $${latest.value}</p>
-        `;
-      } else {
-        html += `<p>No recent GDP data</p>`;
+    }
+    let chartConfig = {
+      type: "line",
+      data: {
+        labels: dates.reverse(),
+        datasets: [
+          {
+            label: "GDP",
+            data: values.reverse(),
+            fill: true,
+            borderColor: "#38bdf8"
+          }
+        ]
       }
+    };
+
+    let chartUrl = "https://quickchart.io/chart?c=" + encodeURIComponent(JSON.stringify(chartConfig));
+    let html = `<h3>Economy (GDP)</h3>`;
+    if (values.length > 0){
+        html += `
+          <div style="margin-bottom:10px;">
+            <img src="${chartUrl}">
+          </div>
+        `;
+
     } else {
       html += `<p>No GDP data available</p>`;
     }
@@ -116,6 +137,7 @@ async function loadDetails(name) {
       `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=Living in ${name}`;
 
   } catch (error) {
+    console.log(err)
     alert("Something went wrong");
   }
 

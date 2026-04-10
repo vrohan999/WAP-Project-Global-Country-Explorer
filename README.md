@@ -123,8 +123,4 @@ No additional setup or dependencies are required.
 * Improve UI animations
 * Add dark mode
 
-<<<<<<< HEAD
 ---
-=======
----
->>>>>>> ac9a132 (commit)
