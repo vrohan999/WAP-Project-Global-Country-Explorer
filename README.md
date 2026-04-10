@@ -1,126 +1,87 @@
-# 🌍 Global Country & Currency Explorer
+# Life Simulator – Global Country Explorer
 
-## 📌 Project Overview
+An interactive web app for exploring countries and visualizing basic economic and cultural context. Browse all countries, search and filter by region, and open a detail view with GDP trends, a cultural reference, and a QR code.
 
-**Global Country & Currency Explorer** is a web application that allows users to explore information about countries and visualize currency exchange trends. Users can search for a country and view key details such as its flag, capital, population, region, and currency. The application also provides real-time currency exchange data and a visual chart showing recent exchange rate trends.
+## Features
 
-This project combines geographical and financial data to create a simple and visually engaging dashboard for exploring countries and their currencies.
+- Browse all countries in a responsive grid
+- Search countries by name
+- Filter countries by region (Asia, Europe, Africa, Americas, Oceania)
+- “Surprise Me” button to jump to a random country
+- Country details page showing:
+  - Flag
+  - Capital
+  - Population
+  - Region and subregion
+  - Main currency
+  - Spoken languages
+- Economy card:
+  - Recent GDP data fetched from the World Bank API
+  - Line chart rendered via QuickChart
+- Culture card:
+  - A related book title fetched from OpenLibrary
+- QR card:
+  - QR code generated for “Living in {country}”
 
----
+## Tech Stack
 
-# 🎯 Purpose
+- HTML
+- CSS
+- JavaScript (vanilla)
+- Public REST APIs
 
-The goal of this project is to build an interactive web application that:
+## APIs Used
 
-* Allows users to search for countries and view important information
-* Displays real-time currency exchange rates
-* Visualizes currency trends through charts
-* Demonstrates the integration of multiple public APIs in a frontend web application
-
----
-
-# 🔌 APIs Used
-
-* REST Countries API
+- REST Countries API  
   https://restcountries.com/
 
-* WorldBank API
-  [https://www.frankfurter.app/](https://documents.worldbank.org/en/publication/documents-reports/api)
+- World Bank API (GDP data)  
+  https://api.worldbank.org/
 
-* QR Code API
+- QuickChart (chart image generation)  
   https://quickchart.io/
 
-* Book/Culture API
-  https://openlibrary.org
+- OpenLibrary (book search)  
+  https://openlibrary.org/developers/api
 
----
+- QR Code Generator API  
+  https://api.qrserver.com/
 
-# ✨ Planned Features
+## Project Structure
 
-### 🔎 Country Search
-
-Users can search for a country and retrieve information about it.
-
-### 🌐 Country Information Dashboard
-
-Display details such as:
-
-* Flag
-* Capital
-* Population
-* Region
-* Currency
-
-### 💱 Currency Converter
-
-Convert between currencies using real-time exchange rates.
-
-### 📈 Currency Trend Chart
-
-Display a currency exchange trend chart using QuickChart.
-
-### 🧭 Sorting & Filtering
-
-Users will be able to:
-
-* Filter countries by region
-* Sort countries by population or name
-
-### 🎨 Responsive UI
-
-A clean and responsive interface that works across different screen sizes.
-
----
-
-# 🛠 Technologies Used
-
-* HTML
-* CSS
-* JavaScript
-* REST APIs
-* Git
-* GitHub
-
----
-
-# 🗂 Project Structure (Planned)
-
-```
-project-folder/
-│
-├── index.html
-├── style.css
-├── script.js
+```text
+Countries Explorer/
+├── index.html       # Main country list + search/filter UI
+├── details.html     # Country details dashboard
+├── script.js        # List page logic (load, search, filter, random)
+├── details.js       # Details page logic (APIs, chart, QR, culture)
+├── style.css        # Styles for index.html
+├── details.css      # Styles for details.html
 └── README.md
 ```
 
----
+## Getting Started
 
-# 🚀 How to Run the Project
+1. Clone the repository:
 
-1. Clone the repository
+   ```bash
+   git clone https://github.com/vrohan999/WAP-Project-Global-Country-Explorer.git
+   cd "Countries Explorer"
+   ```
 
-```
-git clone https://github.com/vrohan999/WAP-Project-Global-Country-Explorer.git
-```
+2. Option A – Open directly  
+   Open `index.html` in your browser.
 
-2. Open the project folder
+3. Option B – Run a simple local server (recommended):
 
-```
-cd WAP-Project-Global-Country-Explorer
-```
+   ```bash
+   cd "/Users/rohanprathapreddy/Desktop/Projects/Countries Explorer"
+   python3 -m http.server 8000
+   ```
 
-3. Open `index.html` in your browser.
+   Then visit http://localhost:8000/index.html in your browser.
 
-No additional setup or dependencies are required.
+## Notes
 
----
-
-# 📅 Future Improvements
-
-* Compare multiple currencies
-* Add more interactive charts
-* Improve UI animations
-* Add dark mode
-
----
+- All data is loaded client-side from public APIs; network errors or API limits may affect what is displayed.
+- GDP data is not available for all countries; in that case the economy card will show that no data is available.
