@@ -75,7 +75,7 @@ Countries Explorer/
 3. Option B – Run a simple local server (recommended):
 
    ```bash
-   cd "/Users/rohanprathapreddy/Desktop/Projects/Countries Explorer"
+   cd "path/to/the/folder"
    python3 -m http.server 8000
    ```
 
